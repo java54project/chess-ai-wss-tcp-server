@@ -1,9 +1,9 @@
-version: "3.8"
-
+version: "3.9"
 services:
   chessaiwss:
     build:
       context: .
+    image: chess-ai-wss-tcp:latest
     ports:
       - "${WS_PORT}:${WS_PORT}"
     environment:
