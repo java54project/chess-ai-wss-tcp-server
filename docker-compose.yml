@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  chessaiwss:
+    build:
+      context: .
+    ports:
+      - "${WS_PORT}:${WS_PORT}"
+    environment:
+      - WS_PORT
+      - TCP_HOST
+      - TCP_PORT
+      - ENABLE_TCP_FORWARDING

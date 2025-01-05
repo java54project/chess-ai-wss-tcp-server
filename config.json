@@ -1,0 +1,6 @@
+{
+  "wsPort": 8080,
+  "tcpHost": "localhost",
+  "tcpPort": 12345,
+  "enableTcpForwarding": true
+}
