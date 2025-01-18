@@ -1,4 +1,10 @@
 node_modules
 npm-debug.log
+.dockerignore
+.git
+.gitignore
+logs
+.vscode
+config.json
+.env
 .DS_Store
-README.md

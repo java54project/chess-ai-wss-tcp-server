@@ -1,6 +1,10 @@
 {
   "wsPort": 8080,
-  "tcpHost": "localhost",
-  "tcpPort": 12345,
-  "enableTcpForwarding": true
+  "tcpHost": "18.218.61.190",
+  "tcpPort": 3000,
+  "enableTcpForwarding": true,
+  "logger": {
+    "level": "debug",
+    "isFileLogging": true
+  }
 }

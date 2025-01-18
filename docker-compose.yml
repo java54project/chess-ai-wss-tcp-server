@@ -1,13 +1,21 @@
 version: "3.9"
 services:
-  chessaiwss:
+  tcp-server:
     build:
       context: .
-    image: chess-ai-wss-tcp:latest
+      dockerfile: Dockerfile
+    container_name: tcp_server_container
     ports:
-      - "${WS_PORT}:${WS_PORT}"
+      - "8080:8080"
+    volumes:
+      - ./config.json:/usr/src/app/config.json # Ensure correct mount path
+      - ./logs:/usr/src/app/logs              # Persist logs
+    working_dir: /usr/src/app # Ensure correct working directory
+    env_file:
+      - .env
     environment:
-      - WS_PORT
-      - TCP_HOST
-      - TCP_PORT
-      - ENABLE_TCP_FORWARDING
+      - WS_PORT=${WS_PORT}
+      - TCP_HOST=${TCP_HOST}
+      - TCP_PORT=${TCP_PORT}
+      - ENABLE_TCP_FORWARDING=${ENABLE_TCP_FORWARDING}
+    restart: unless-stopped # Ensure auto-restart on failure

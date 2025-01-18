@@ -1,20 +1,20 @@
-# Step 1: Use Node.js LTS version as the base image
-FROM node:16
+# Use Node.js as the base image
+FROM node:18
 
-# Step 2: Set the working directory inside the container
+# Set the working directory inside the container
 WORKDIR /usr/src/app
 
-# Step 3: Copy package.json and package-lock.json to the container
-COPY package*.json ./
+# Copy package.json and package-lock.json
+COPY package.json package-lock.json ./
 
-# Step 4: Install dependencies
+# Install dependencies
 RUN npm install
 
-# Step 5: Copy the rest of the application files
-COPY . .
+# Copy the rest of the application files
+COPY . . 
 
-# Step 6: Expose the WebSocket port (default from config.json)
+# Expose the WebSocket port
 EXPOSE 8080
 
-# Step 7: Start the application
+# Start the application
 CMD ["node", "server.js"]
